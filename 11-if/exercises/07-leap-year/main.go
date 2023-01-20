@@ -8,6 +8,12 @@
 
 package main
 
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Leap Year
 //
@@ -37,4 +43,25 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+
+	if len(os.Args) != 2 {
+		fmt.Println("Pick a number")
+		return
+	}
+
+	year, err := strconv.Atoi(os.Args[1])
+	if err != nil {
+		fmt.Printf("\"%s\" is not a valid year\n", os.Args[1])
+		return
+	}
+
+	if year%4 == 0 && year%100 != 0 {
+		println(year, "is a leap year")
+	} else if year%100 == 0 && year%400 != 0 {
+		println(year, "is not a leap year")
+	} else if year%400 == 0 {
+		println(year, "is a leap year")
+	} else {
+		println(year, "is not a leap year")
+	}
 }

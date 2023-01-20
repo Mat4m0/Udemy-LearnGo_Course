@@ -8,6 +8,11 @@
 
 package main
 
+import (
+	"os"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Vowel or Consonant
 //
@@ -50,4 +55,6 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+
+	strings.ContainsAny(os.Args[1], "a")
 }
